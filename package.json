@@ -1,0 +1,23 @@
+{
+  "name": "js-template",
+  "author": "@skooch",
+  "packageManager": "yarn@4.4.1",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint",
+    "build": "yarn clean && yarn build:swc",
+    "build:swc": "yarn clean && swc -d dist/ src/index.ts",
+    "build:tsc": "yarn clean && tsc",
+    "start": "yarn build && yarn lint && node --enable-source-maps ./dist/index.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.22",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0"
+  }
+}

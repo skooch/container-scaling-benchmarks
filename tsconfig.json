@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "_version": "20.1.0",
+    "extends": "@tsconfig/node22/tsconfig.json",
+    "compilerOptions": {
+        "sourceMap": true,
+        "rootDir": "./src/",
+        "composite": true,
+        "outDir": "dist",
+        "module": "NodeNext"
+    },
+    "include": [
+        "src/"
+    ]
+}
