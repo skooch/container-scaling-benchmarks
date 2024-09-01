@@ -1,14 +1,16 @@
 {
-  "name": "js-template",
+  "name": "container-scaling-benchmarks",
   "author": "@skooch",
   "packageManager": "yarn@4.4.1",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm tsconfig.tsbuildinfo",
     "lint": "eslint",
     "build": "yarn clean && yarn build:swc",
-    "build:swc": "yarn clean && swc -d dist/ src/index.ts",
+    "build:swc": "yarn clean && swc -q -d ./dist src",
     "build:tsc": "yarn clean && tsc",
-    "start": "yarn build && yarn lint && node --enable-source-maps ./dist/index.js"
+    "start": "yarn build && yarn lint && node --enable-source-maps ./dist/index.js",
+    "deploy": "yarn build:tsc && yarn cdk synth && yarn cdk deploy test-stack",
+    "destroy": "yarn build:tsc && yarn cdk synth && yarn cdk destroy test-stack"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -16,8 +18,16 @@
     "@swc/core": "^1.7.22",
     "@tsconfig/node22": "^22.0.0",
     "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22",
+    "@types/source-map-support": "^0",
+    "aws-cdk": "^2.155.0",
     "eslint": "^9.9.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.3.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.155.0",
+    "constructs": "^10.3.0",
+    "source-map-support": "^0.5.21"
   }
 }

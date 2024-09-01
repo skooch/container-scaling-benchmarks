@@ -4,7 +4,7 @@
     "extends": "@tsconfig/node22/tsconfig.json",
     "compilerOptions": {
         "sourceMap": true,
-        "rootDir": "./src/",
+        "rootDir": "./src",
         "composite": true,
         "outDir": "dist",
         "module": "NodeNext"

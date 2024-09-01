@@ -20,6 +20,9 @@ node_modules
 dist
 tsconfig.tsbuildinfo
 
+# cdk
+cdk.out
+
 # macOS from https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
 # General
 .DS_Store
